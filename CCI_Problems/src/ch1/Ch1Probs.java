@@ -152,11 +152,19 @@ public class Ch1Probs {
 		return false;
 	}
 	
+	public static void stringRotationTest(){
+		String[][] tests = {
+				{"waterbottle", "erbottlewat"}
+		};
+		for(int i = 0; i < tests.length; i++)
+			System.out.printf("String 1: %s, String 2: %s, rotated: %b\n", tests[i][0], tests[i][1], stringRotation(tests[i][0], tests[i][1]));
+	}
+	
 	public static void main(String[] args){
 		//oneAwayTests();
 		//sCompressionTests();
 		//rotatedMatrixTests();
 		//zeroMatrixTests();
-		System.out.println(stringRotation("waterbottle", "erbottlewat"));
+		stringRotationTest();
 	}
 }
