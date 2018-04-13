@@ -92,11 +92,55 @@ public class Ch1Probs {
 		System.out.println(Arrays.deepToString(rTest));
 	}
 	
+	public static int[][] zeroMatrix(int[][] m){
+		int[][] zeroMatrix = new int[m.length][m[0].length];
+		boolean[] zeroRows = new boolean[m.length];
+		boolean[] zeroCols = new boolean[m[0].length];
+		for(int i = 0; i < m.length; i++)
+			for(int j = 0; j < m[0].length; j++){
+				zeroMatrix[i][j] = m[i][j];
+				if(m[i][j] == 0){
+					zeroRows[i] = true;
+					zeroCols[j] = true;
+				}
+			}
+		zeroMatrix = bomberMan(zeroMatrix, zeroRows, zeroCols);
+		return zeroMatrix;
+	}
 	
+	private static int[][] bomberMan(int[][] m, boolean[] zeroR, boolean[] zeroC){
+		for(int i = 0; i < zeroR.length; i++)
+			if(zeroR[i])
+				for(int j = 0; j < m[i].length; j++)
+					m[i][j] = 0;
+		for(int j = 0; j < zeroC.length; j++)
+			if(zeroC[j])
+				for(int i = 0; i < m.length; i++)
+					m[i][j] = 0;
+		return m;
+	}
+	
+	public static void zeroMatrixTests(){
+		int[][] test = {
+				{1,1,1},
+				{1,0,1},
+				{1,1,1}
+		};
+		test = zeroMatrix(test);
+		System.out.println(Arrays.deepToString(test));
+		int[][] test2 = {
+				{0,1,1},
+				{1,1,1},
+				{1,1,0}
+		};
+		test2 = zeroMatrix(test2);
+		System.out.println(Arrays.deepToString(test2));
+	}
 	
 	public static void main(String[] args){
 		//oneAwayTests();
 		//sCompressionTests();
-		rotatedMatrixTests();
+		//rotatedMatrixTests();
+		zeroMatrixTests();
 	}
 }
