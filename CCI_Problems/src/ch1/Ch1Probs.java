@@ -74,7 +74,7 @@ public class Ch1Probs {
 	}
 	
 	public static void main(String[] args){
-		//();
+		oneAwayTests();
 		sCompressionTests();
 	}
 }
