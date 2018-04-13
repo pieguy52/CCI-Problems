@@ -1,5 +1,6 @@
 package ch1;
 import java.lang.StringBuilder;
+import java.util.Arrays;
 
 public class Ch1Probs {
 	
@@ -22,6 +23,19 @@ public class Ch1Probs {
 				return false;
 		}
 		return true;
+	}
+	
+	public static void oneAwayTests() {
+		String[][] tests = {
+				{"pale", "ple"},
+				{"pale", "pal"},
+				{"pales", "pale"},
+				{"palse", "pale"},
+				{"pale", "bale"},
+				{"pale", "bake"}
+		};
+		for(int i = 0; i < tests.length; i++)
+			System.out.printf("Test %d: (%s, %s) %b\n", i, tests[i][0], tests[i][1], oneAway(tests[i][0], tests[i][1]));
 	}
 	
 	public static String sCompression(String s){
@@ -54,27 +68,35 @@ public class Ch1Probs {
 		return fin.toString();
 	}
 	
-	private static void oneAwayTests() {
-		String[][] tests = {
-				{"pale", "ple"},
-				{"pale", "pal"},
-				{"pales", "pale"},
-				{"palse", "pale"},
-				{"pale", "bale"},
-				{"pale", "bake"}
-		};
-		for(int i = 0; i < tests.length; i++)
-			System.out.printf("Test %d: (%s, %s) %b\n", i, tests[i][0], tests[i][1], oneAway(tests[i][0], tests[i][1]));
-	}
-	
-	private static void sCompressionTests(){
+	public static void sCompressionTests(){
 		String[] tests = {"a", "aaaaabccccaaa", "rmbrthyyyylm","aaaaaaaaaaaaaaaaaaaaab", "abababababbababababab"};
 		for(String s: tests)
 			System.out.printf("String: %s, compressed: %s\n", s, sCompression(s));
 	}
 	
+	public static int[][] rotateMatrix(int[][] m){
+		int[][] rotatedM = new int[m.length][m.length];
+		for(int i = 0; i < m.length; i++)
+			for(int j = 0; j < m.length; j++)
+				rotatedM[i][j] = m[(m.length-1)-j][i];
+		return rotatedM;
+	}
+	
+	public static void rotatedMatrixTests(){
+		int[][] test = {
+				{0, 1, 2},
+				{3, 4, 5},
+				{6, 7, 8}
+		};
+		int[][] rTest = rotateMatrix(test);
+		System.out.println(Arrays.deepToString(rTest));
+	}
+	
+	
+	
 	public static void main(String[] args){
-		oneAwayTests();
-		sCompressionTests();
+		//oneAwayTests();
+		//sCompressionTests();
+		rotatedMatrixTests();
 	}
 }
