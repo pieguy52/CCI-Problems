@@ -137,10 +137,26 @@ public class Ch1Probs {
 		System.out.println(Arrays.deepToString(test2));
 	}
 	
+	public static boolean stringRotation(String s1, String s2){
+		if(s1 == null || s2 == null || s1.length() != s2.length())
+			return false;
+		char c = 'q';
+		StringBuilder s = new StringBuilder(s2);
+		for(int i = 0; i < s1.length(); i++){
+			c = s.charAt(0);
+			s.deleteCharAt(0);
+			s.append(c);
+			if(s.toString().equals(s1))
+				return true;
+		}
+		return false;
+	}
+	
 	public static void main(String[] args){
 		//oneAwayTests();
 		//sCompressionTests();
 		//rotatedMatrixTests();
-		zeroMatrixTests();
+		//zeroMatrixTests();
+		System.out.println(stringRotation("waterbottle", "erbottlewat"));
 	}
 }
