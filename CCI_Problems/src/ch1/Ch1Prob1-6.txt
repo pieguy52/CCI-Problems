@@ -1,0 +1,10 @@
+I: Given a string compress it so that each character states how many times it is repeated after itself.
+D: The goal is to make a compressed string smaller than the given string, otherwise return the string as is.
+  Sub 1: The given example was aabcccccaaa, and further tests were preformed on rmbrthyyyylm, aaaaaaaaaaaaaaaaaab, ababababababababa.
+  Sub 2: If the letter was the same as the previous the count incremented, other wise the new letter was put and the counter was restated to one.
+  Sub 3: The act of updating the count was repeated so long as the previous character was the same, which meant a conditional as to whether or not the previous equaled the same character, otherwise count kept incrementing.
+  Sub 4: aabcccccaaa, would then look like this: a1 - a2 - a2b1 - a2b1 - a2b1c1… a2b1c5 – a2b1c5a1 – a2b1c5a2 – a2b1c5a3
+  Sub 5: The algorithm was translated to code using a string builder. A previous and current character where kept, a count for how often the character appeared was used, and changing the string into a character array. If the characters where the same, the previous count was erased and replaced with the updated count, otherwise the new character was appended as well as count, now set to one. Finally if the final string was longer than the initial string the original was returned. 
+  Sub 6: For some repetitions with a certain length, the count was multiple ones followed by the final count. This was because 10 is of length 2 not one, meaning that each time count was updated the leading digit needed removal as well. 
+  Sub 7: This lead to a provision for if count was greater than ten. If so an if statement was added stating to delete the final character twice. An example would be a9 -> a10 needing to have ‘1’ and ‘0’ removed in order to add 11 to get a11. This small change worked for all further test cases.
+L: The problem was straightforward and had a basic solution. With only a minor issue to debug, the path from conceptualization to implementation to final solution was a simple and straightforward one.
