@@ -28,7 +28,35 @@ public class Ch2Probs {
 			System.out.println(node);
 	}
 	
+	public static LinkedList<Integer> sumLists(LinkedList<Integer> l1, LinkedList<Integer> l2){
+		LinkedList<Integer> sum = new LinkedList<Integer>();
+		int length = (l1.size() < l2.size()) ? l2.size() : l1.size();
+		int val1, val2, carryOver = 0;
+		for(int i = 0; i < length; i++){
+			val1 = (l1.size() > i) ? l1.get(i) : 0;
+			val2 = (l2.size() > i) ? l2.get(i) : 0;
+			sum.add((val1+val2+carryOver) % 10); 
+			carryOver = ((val1+val2+carryOver) >= 10) ? 1 : 0;
+		}
+		if(carryOver == 1)
+			sum.add(carryOver);
+		return sum;
+	}
+	
+	public static void sumListsTests(){
+		LinkedList<Integer> l1 = new LinkedList<Integer>();
+		LinkedList<Integer> l2 = new LinkedList<Integer>();
+		l1.add(9);
+		l2.add(9);
+		l2.add(9);
+		l2.add(9);
+		LinkedList<Integer> sum = sumLists(l1, l2);
+		for(Integer s : sum)
+			System.out.println(s);
+	}
+	
 	public static void main(String[] args){
-		partitionTests();
+		//partitionTests();
+		sumListsTests();
 	}
 }
