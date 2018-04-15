@@ -16,12 +16,28 @@ public class Ch1Probs {
 			}
 		}else{
 			int length = (s1.length() < s2.length()) ? s1.length() : s2.length();
-			int numDiff = 0;
-			for(int i = 0; i < length; i++)
-				numDiff += (s1.charAt(i) == s2.charAt(i)) ? 0 : 1;
-			if(numDiff > length)
-				return false;
+			for(int i = 0; i < length; i++){
+				if(s1.charAt(i) != s2.charAt(i))
+					return deleteChar(s1, s2, i);
+			}
 		}
+		return true;
+	}
+	
+	private static boolean deleteChar(String s1, String s2, int index){
+		StringBuilder ns1 = new StringBuilder(s1);
+		StringBuilder ns2 = new StringBuilder(s2);
+		if(ns1.length() < ns2.length())
+			ns2.deleteCharAt(index);
+		else
+			ns1.deleteCharAt(index);
+		
+		if(ns2.length() != ns1.length())
+			return false;
+				
+		for(int i = 0; i < ns1.length(); i++)
+			if(ns1.charAt(i) != ns2.charAt(i))
+				return false;
 		return true;
 	}
 	
@@ -31,6 +47,8 @@ public class Ch1Probs {
 				{"pale", "pal"},
 				{"pales", "pale"},
 				{"palse", "pale"},
+				{"pasle", "pale"},
+				{"spale", "pale"},
 				{"pale", "bale"},
 				{"pale", "bake"}
 		};
@@ -161,10 +179,10 @@ public class Ch1Probs {
 	}
 	
 	public static void main(String[] args){
-		//oneAwayTests();
+		oneAwayTests();
 		//sCompressionTests();
 		//rotatedMatrixTests();
 		//zeroMatrixTests();
-		stringRotationTest();
+		//stringRotationTest();
 	}
 }
