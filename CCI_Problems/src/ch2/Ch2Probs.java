@@ -2,6 +2,7 @@ package ch2;
 
 import java.util.LinkedList;
 import java.util.Random;
+import java.util.Stack;
 
 public class Ch2Probs {
 	
@@ -18,7 +19,7 @@ public class Ch2Probs {
 		return smaller;
 	}
 	
-	private static void partitionTests() {
+	public static void partitionTests() {
 		Random rand = new Random();
 		LinkedList<Integer> test = new LinkedList<Integer>();
 		for(int i = 0; i < 10; i++)
@@ -55,8 +56,35 @@ public class Ch2Probs {
 			System.out.println(s);
 	}
 	
+	public static boolean palindrome(LinkedList<Object> l){
+		Stack<Object> check = new Stack<Object>();
+		for(Object o: l){
+			if(!check.isEmpty() && o.equals(check.peek()))
+				check.pop();
+			else
+				check.push(o);
+		}
+		return check.isEmpty();
+	}
+	
+	public static void palindromeTests(){
+		LinkedList<Object> test = new LinkedList<Object>();
+		test.add('n');
+		test.add('o');
+		test.add('x');
+		test.add('i');
+		test.add('n');
+		test.add('n');
+		test.add('i');
+		test.add('x');
+		test.add('o');
+		test.add('n');
+		System.out.println(palindrome(test));
+	}
+	
 	public static void main(String[] args){
 		//partitionTests();
-		sumListsTests();
+		//sumListsTests();
+		palindromeTests();
 	}
 }
