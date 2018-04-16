@@ -16,6 +16,7 @@ public class Ch2Probs {
 		
 		for(T t: duplicates)
 			newL.add(t);
+		
 		return newL;
 	}
 	
@@ -26,6 +27,30 @@ public class Ch2Probs {
 			test.add(i);
 		}
 		test = removeDuplicates(test);
+		for(Integer i: test)
+			System.out.println(i);
+	}
+	
+	public static <T> LinkedList<T> removeKLast(LinkedList<T> l, int k){
+		LinkedList<T> newL = new LinkedList<T>();
+		int size = 0;
+		for(T t: l)
+			size++;
+		for(T t: l)
+			newL.add(t);
+		newL.remove(size-k);
+		return newL;
+	}
+	
+	public static void removeKLastTests(){
+		LinkedList<Integer> test = new LinkedList<Integer>();
+		int testSize = 10;
+		Random rand = new Random();
+		int k = rand.nextInt(testSize);
+		for(int i = 0; i < testSize; i++)
+			test.add(i);
+		test = removeKLast(test, k);
+		System.out.printf("Removing %dth element from end.\n", k);
 		for(Integer i: test)
 			System.out.println(i);
 	}
@@ -111,7 +136,8 @@ public class Ch2Probs {
 	}
 	
 	public static void main(String[] args){
-		removeDuplicatesTests();
+		//removeDuplicatesTests();
+		removeKLastTests();
 		//partitionTests();
 		//sumListsTests();
 		//palindromeTests();
