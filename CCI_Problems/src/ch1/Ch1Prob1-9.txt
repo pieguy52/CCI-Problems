@@ -1,0 +1,14 @@
+I:Given two strings, s1 and s2, check if s2 is a rotation of s1.
+D:The solution will be a boolean, as to whether or not s2 is a rotaiton of s1.
+	Sub 1: The given example was waterbottle and erbottlewat.
+	Sub 2: If s2 is rotated, it can be checked if it equals s1. 
+	Sub 3: The checking sequence will only ever take the length of s1 to check every possible rotation to check whether or not the strings are the same.
+	Sub 4: Rotate erbottlewat to rbottlewate, rbottlewate != waterbottle. Rotate rbottlewate to bottlewater, bottlewater != waterbottle ... 
+	Rotate ewaterbottl to waterbottle, waterbottle == waterbottle, return true.
+	Sub 5: The translation to code is one to one, using a string builder to make the rotations by deleting the charcter at the front of the string and moving
+	it to the back of the string. If the two strings are the same it returns true, otherwise it continues on.
+	Sub 6: By handleing null and strings of different lenghts, all tests passed wihhout issue.
+	Sub 7: No debbuging was necassary as the algorithm worked fine as is.
+L: The problme mentions using a isSubtring mehtod, and only being able to use it once. The idea was probable to locate a substring inside the rotated string and
+comparing that to a substring in the original. That was wholly unecassary as rotating s2 to match s1, or vise versa, results in an easier to implement soluiton that
+also makes more sense. This problem reminds that some problems may have extra information that may seem helpful but could be unnecassary or unhelpful. 
