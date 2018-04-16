@@ -91,6 +91,8 @@ public class Ch1Probs {
 	}
 	
 	public static int[][] rotateMatrix(int[][] m){
+		if(m == null)
+			return m;
 		int[][] rotatedM = new int[m.length][m.length];
 		for(int i = 0; i < m.length; i++)
 			for(int j = 0; j < m.length; j++)
@@ -109,6 +111,8 @@ public class Ch1Probs {
 	}
 	
 	public static int[][] zeroMatrix(int[][] m){
+		if(m == null)
+			return m;
 		int[][] zeroMatrix = new int[m.length][m[0].length];
 		boolean[] zeroRows = new boolean[m.length];
 		boolean[] zeroCols = new boolean[m[0].length];
@@ -151,12 +155,19 @@ public class Ch1Probs {
 		};
 		test2 = zeroMatrix(test2);
 		System.out.println(Arrays.deepToString(test2));
+		int[][] test3 = {
+				{1,0,1},
+				{1,0,1},
+				{1,1,1}
+		};
+		test3 = zeroMatrix(test3);
+		System.out.println(Arrays.deepToString(test3));
 	}
 	
 	public static boolean stringRotation(String s1, String s2){
 		if(s1 == null || s2 == null || s1.length() != s2.length())
 			return false;
-		char c = 'q';
+		char c;
 		StringBuilder s = new StringBuilder(s2);
 		for(int i = 0; i < s1.length(); i++){
 			c = s.charAt(0);
@@ -170,17 +181,18 @@ public class Ch1Probs {
 	
 	public static void stringRotationTest(){
 		String[][] tests = {
-				{"waterbottle", "erbottlewat"}
+				{"waterbottle", "erbottlewat"},
+				{"wassup", "supwas"}
 		};
 		for(int i = 0; i < tests.length; i++)
 			System.out.printf("String 1: %s, String 2: %s, rotated: %b\n", tests[i][0], tests[i][1], stringRotation(tests[i][0], tests[i][1]));
 	}
 	
 	public static void main(String[] args){
-		oneAwayTests();
+		//oneAwayTests();
 		//sCompressionTests();
 		//rotatedMatrixTests();
 		//zeroMatrixTests();
-		//stringRotationTest();
+		stringRotationTest();
 	}
 }
