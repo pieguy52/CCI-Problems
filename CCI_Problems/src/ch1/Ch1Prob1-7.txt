@@ -3,8 +3,16 @@ D: The solution will be a matrix that is rotated 90 degrees, where each row beco
   Sub 1: A matrix that is [[0, 1], [2, 3]] would look like [[2, 0], [3, 1]]. 
   Sub 2: The new position of each elements row is its old column, and the length of the row minus the old row represents its new column.  
   Sub 3: The steps in step two perfectly summed up how the implementation had to be translated to the computer. 
-  Sub 4: Example [[0, 1], [2, 3]]: 0 is in row 0 column 0. Its new row is 0 and its column is 1 minus 0, 1. 1 is in row 0 column 1. Its new row is 1, its column is 1 minus 0, 1. 2 is in row 1, column 0. Its new row is 0, and its new column is 1 minus 1, 0. 3 is in row 1 column 1. Its new row is 1, and its new column is 1 – 1, 0. 
-  Sub 5: When translating to code it made more sense to populate a new array instead of changing the current one. The trade off is readability and ease of coding. Thus the algorithm was tuned to reflect this change being the same in essence, with row in the new array being the length minus the column in the new array, and the column being the row in the new array. 
-  Sub 6: All square arrays work, with square being the key word. All square arrays share the same sized rows and columns, which allows for this simple solution to work. None square matrixes will break the algorithm, but since the question specifies square matrixes this doesn’t have to be taken into consideration, but is important to either explicitly state in use, or handle directly.
+  Sub 4: Example [[0, 1], [2, 3]]: 0 is in row 0 column 0. Its new row is 0 and its column is 1 minus 0, 1. 1 is in row 0 column 1. Its 
+  new row is 1, its column is 1 minus 0, 1. 2 is in row 1, column 0. Its new row is 0, and its new column is 1 minus 1, 0. 3 is in row 1 column 1. Its new row is 1, 
+  and its new column is 1 – 1, 0. 
+  Sub 5: When translating to code it made more sense to populate a new array instead of changing the current one. The trade off is readability and ease of coding. 
+  Thus the algorithm was tuned to reflect this change being the same in essence, with row in the new array being the length minus the column in the new array, and the 
+  column being the row in the new array. 
+  Sub 6: All square arrays work, with square being the key word. All square arrays share the same sized rows and columns, which allows for this simple solution to work. 
+  None square matrixes will break the algorithm, but since the question specifies square matrixes this doesn’t have to be taken into consideration, but is important to 
+  either explicitly state in use, or handle directly.
   Sub 7: As a result of the square property of the matrixes there was no need to debug as the test cases of increasing matrix size showed.
-L: The discovery of the algorithm led to a simple implementation of the solution, as the only difficulty from paper to code was reversing the algorithm to fill an array as opposed to rotating the matrix itself. 
+L: The discovery of the algorithm led to a simple implementation of the solution, as the only difficulty from paper to code was reversing the algorithm to fill an array 
+as opposed to rotating the matrix itself. 
+
