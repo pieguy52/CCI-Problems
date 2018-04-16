@@ -1,0 +1,12 @@
+I: Given a linked list, make every element less than x come before all elements that are greater than or equal to x. Order for the larger set doesn't matter.
+D: The final state will be a linked list that has all the smaller elements followed by the larger than or equal to x elements. All the larger elements don't have
+to follow x.
+	Sub 1: The example given was 3>5>8>5>10>2>1 with x = 5.
+	Sub 2: Every element was compared to 5, and then added to the smaller or larger list. At the end the lists were appended together.
+	Sub 3: The ordering not mattering is key as the lists make it easier to ignore ordering by default. 
+	Sub 4: 3 goes to small. 5 goes to larger, 8 goes to larger, 5 goes to larger, 10 goes to larger 2 goes to smaller and 1 goes to smaller. smaller = 3>2>1
+	larger = 5>8>5>10. 1 is made to point to 5 and the final list is 3>2>1>5>8>5>10
+	Sub 5: The translation to code was similar to the algorithm by hand. The only addition was checking for if the list was empty.
+	Sub 6: The method worked fine on a variety of different cases.
+	Sub 7: No debugging was necassary.
+L: The problem was straight forward and easy to implement.
