@@ -1,10 +1,34 @@
 package ch2;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Random;
 import java.util.Stack;
 
 public class Ch2Probs {
+	
+	public static <T> LinkedList<T> removeDuplicates(LinkedList<T> l){
+		LinkedList<T> newL = new LinkedList<T>();
+		HashSet<T> duplicates = new HashSet<T>();
+		
+		for(int i = 0; i < l.size(); i++)
+			duplicates.add(l.get(i));
+		
+		for(T t: duplicates)
+			newL.add(t);
+		return newL;
+	}
+	
+	public static void removeDuplicatesTests(){
+		LinkedList<Integer> test = new LinkedList<Integer>();
+		for(int i = 0; i < 10; i++){
+			test.add(i);
+			test.add(i);
+		}
+		test = removeDuplicates(test);
+		for(Integer i: test)
+			System.out.println(i);
+	}
 	
 	public static LinkedList<Integer> partition(LinkedList<Integer> l, int x){
 		if(l.isEmpty())
@@ -87,7 +111,8 @@ public class Ch2Probs {
 	}
 	
 	public static void main(String[] args){
-		partitionTests();
+		removeDuplicatesTests();
+		//partitionTests();
 		//sumListsTests();
 		//palindromeTests();
 	}
