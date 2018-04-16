@@ -56,19 +56,19 @@ public class Ch2Probs {
 			System.out.println(s);
 	}
 	
-	public static boolean palindrome(LinkedList<Object> l){
-		Stack<Object> check = new Stack<Object>();
-		for(Object o: l){
-			if(!check.isEmpty() && o.equals(check.peek()))
+	public static <T> boolean palindrome(LinkedList<T> l){
+		Stack<T> check = new Stack<T>();
+		for(T t: l){
+			if(!check.isEmpty() && t.equals(check.peek()))
 				check.pop();
 			else
-				check.push(o);
+				check.push(t);
 		}
 		return check.isEmpty();
 	}
 	
 	public static void palindromeTests(){
-		LinkedList<Object> test = new LinkedList<Object>();
+		LinkedList<Character> test = new LinkedList<Character>();
 		test.add('n');
 		test.add('o');
 		test.add('x');

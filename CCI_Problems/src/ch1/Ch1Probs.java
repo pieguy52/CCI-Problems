@@ -182,7 +182,8 @@ public class Ch1Probs {
 	public static void stringRotationTest(){
 		String[][] tests = {
 				{"waterbottle", "erbottlewat"},
-				{"wassup", "supwas"}
+				{"wassup", "supwas"},
+				{"hey", "hey"}
 		};
 		for(int i = 0; i < tests.length; i++)
 			System.out.printf("String 1: %s, String 2: %s, rotated: %b\n", tests[i][0], tests[i][1], stringRotation(tests[i][0], tests[i][1]));
