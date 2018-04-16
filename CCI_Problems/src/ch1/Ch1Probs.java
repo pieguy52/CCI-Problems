@@ -27,6 +27,7 @@ public class Ch1Probs {
 	private static boolean deleteChar(String s1, String s2, int index){
 		StringBuilder ns1 = new StringBuilder(s1);
 		StringBuilder ns2 = new StringBuilder(s2);
+		
 		if(ns1.length() < ns2.length())
 			ns2.deleteCharAt(index);
 		else
@@ -35,10 +36,7 @@ public class Ch1Probs {
 		if(ns2.length() != ns1.length())
 			return false;
 				
-		for(int i = 0; i < ns1.length(); i++)
-			if(ns1.charAt(i) != ns2.charAt(i))
-				return false;
-		return true;
+		return ns1.toString().equals(ns2.toString());
 	}
 	
 	public static void oneAwayTests() {
