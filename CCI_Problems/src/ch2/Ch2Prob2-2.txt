@@ -1,0 +1,11 @@
+I: Remove the kth from the end item of a linked list.
+D: THe solution will be a linked list with the k to the end element removed.
+	Sub 1: If k is 2, then in the list 1>2>3>4>5, 4 would be removed
+	Sub 2: Removed the second from the end element
+	Sub 3: There are no patterns 
+	Sub 4: 1 is the first element, 2 is the second, 3 is the third, 4 is the second from the end and is removed, 5 is the final element 
+	Sub 5: When translating to code the only thing to keep in mind is what the length is, then the element to be removed is simply the length - k
+	Sub 6: When run on randomly generated lists with random ks, it worked 
+	Sub 7: No debugging was necessary
+L: Because linked lists don't always have a length attribute it is necessary to make a pass through the whole array in order to get the size of the array. With that gotten
+the solution becomes trivial, and implementation is easy. 
