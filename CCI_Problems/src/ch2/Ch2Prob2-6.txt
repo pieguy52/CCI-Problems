@@ -1,0 +1,12 @@
+I: Check if a list is a palindrome
+D: The solution will be a boolean as to whether or not the list contains a palindrome
+	Sub 1: noxinnixon is a palindrome
+	Sub 2: Kept track of all letters and make sure they appeared twice in the same reversed order
+	Sub 3: If a character doesn't appear twice in the same position but mirrored it isn't a palindrome
+	Sub 4: n appears once, o appears once, x appears once, i appears once, n repeats but not at this position, n repeats for the preceding n, i repeats for the fourth character,
+	x repeats for the third character, o repeats for the second character, n repeats for the first character.
+	Sub 5: Maintaining a stack allows for an easy way to check for repetition as well as the other of repetition. If a character matches what is on top of the stack it can be popped
+	and at the end if the stack is empty, it was a palindrome.
+	Sub 6: Three tests were ran and returned correctly
+	Sub 7: No debugging was necessary
+L: Using the correct data structure can make a problem much easier than it may initially seem and make it next to trivial. 
