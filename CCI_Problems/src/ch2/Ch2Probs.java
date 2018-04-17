@@ -11,8 +11,8 @@ public class Ch2Probs {
 		LinkedList<T> newL = new LinkedList<T>();
 		HashSet<T> duplicates = new HashSet<T>();
 		
-		for(int i = 0; i < l.size(); i++)
-			duplicates.add(l.get(i));
+		for(T t: l)
+			duplicates.add(t);
 		
 		for(T t: duplicates)
 			newL.add(t);
@@ -22,13 +22,21 @@ public class Ch2Probs {
 	
 	public static void removeDuplicatesTests(){
 		LinkedList<Integer> test = new LinkedList<Integer>();
+		Random rand = new Random();
 		for(int i = 0; i < 10; i++){
-			test.add(i);
-			test.add(i);
+			int r = rand.nextInt(10);
+			test.add(r);
+			test.add(r);
 		}
-		test = removeDuplicates(test);
+		
+		System.out.println("Original list:");
 		for(Integer i: test)
-			System.out.println(i);
+			System.out.print(i + "->"); 
+		
+		test = removeDuplicates(test);
+		System.out.println("\nDuplicates removed");
+		for(Integer i: test)
+			System.out.print(i + "->");
 	}
 	
 	public static <T> LinkedList<T> removeKLast(LinkedList<T> l, int k){
@@ -36,9 +44,11 @@ public class Ch2Probs {
 		int size = 0;
 		for(T t: l)
 			size++;
-		for(T t: l)
-			newL.add(t);
-		newL.remove(size-k);
+		for(T t: l){
+			if(size-k != 0)
+				newL.add(t);
+			size--;
+		}
 		return newL;
 	}
 	
@@ -121,25 +131,30 @@ public class Ch2Probs {
 	}
 	
 	public static void palindromeTests(){
-		LinkedList<Character> test = new LinkedList<Character>();
-		test.add('n');
-		test.add('o');
-		test.add('x');
-		test.add('i');
-		test.add('n');
-		test.add('n');
-		test.add('i');
-		test.add('x');
-		test.add('o');
-		test.add('n');
-		System.out.println(palindrome(test));
+		LinkedList<Character> test1 = new LinkedList<Character>();
+		String s1 = "noxinnixon";
+		for(char c : s1.toCharArray())
+			test1.add(c);
+		System.out.println(palindrome(test1));
+		
+		LinkedList<Character> test2 = new LinkedList<Character>();
+		String s2 = "pieeeip";
+		for(char c : s2.toCharArray())
+			test2.add(c);
+		System.out.println(palindrome(test2));
+		
+		LinkedList<Character> test3 = new LinkedList<Character>();
+		String s3 = "aaaa";
+		for(char c : s3.toCharArray())
+			test3.add(c);
+		System.out.println(palindrome(test3));
 	}
 	
 	public static void main(String[] args){
 		//removeDuplicatesTests();
-		removeKLastTests();
+		//removeKLastTests();
 		//partitionTests();
 		//sumListsTests();
-		//palindromeTests();
+		palindromeTests();
 	}
 }
