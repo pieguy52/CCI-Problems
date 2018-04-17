@@ -8,5 +8,5 @@ to follow x.
 	larger = 5>8>5>10. 1 is made to point to 5 and the final list is 3>2>1>5>8>5>10
 	Sub 5: The translation to code was similar to the algorithm by hand. The only addition was checking for if the list was empty.
 	Sub 6: The method worked fine on a variety of different cases.
-	Sub 7: No debugging was necassary.
-L: Due to the properties of linked lists this problem isn't difficult and as long as the pointers are kept consistent, the solution is easy to implemet.
+	Sub 7: No debugging was necessary.
+L: Due to the properties of linked lists this problem isn't difficult and as long as the pointers are kept consistent, the solution is easy to implement.
