@@ -1,0 +1,11 @@
+I: Two numbers are represented as linked lists in reverse order. Add them together and return the sum.
+D: The solution will be a sum representing the sum of the linked lists as a linked list
+	Sub 1: The given example is 7>1>6 + 5>9>2 (617 + 295) which equals 2>1>9 (912)
+	Sub 2: Take the value of each node add them together to any carry over, put that in a new node, and update the carry over. At the end make a node for the carry over if necessary
+	Sub 3: Take care of carry overs and unbalanced lists 
+	Sub 4: 7 + 5 is 12, first node is 2 carry over is 1. 1 + 9 + 1 is 11, second node is 1 carry over is 1. 6 + 2 + 1 is 9, the final node is 9.
+	Sub 5: When translating to code taking care of unbalanced lists is key, as otherwise the sum wont return correctly. Taking care of the carry over both during the summations 
+	and any that are left at the end is also important.
+	Sub 6: Multiple tests were run with key tests being 9>9 + 1 and 9>9>9 and 1.
+	Sub 7: No debugging was necessary
+L: When dealing with multiple lists it is important to keep track of their length to avoid null pointer exceptions.
