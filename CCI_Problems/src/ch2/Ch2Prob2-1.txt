@@ -1,0 +1,12 @@
+I: Given an unsorted linked list, remove any duplicates.
+D: The solution will be a linked list without any duplicates
+	Sub 1: The instance used was 1>2>3>4>5>4>3>2>1
+	Sub 2: The duplicates were passed over
+	Sub 3: Keeping track of already existing members is needed to know what already belongs 
+	Sub 4: 1 isn't repeated and is added, 2 isn't repeated and is added, 3 isn't repeated and is added, 4 isn't repeated and is added, 5 isn't repeated and is added,
+	4 is repeated and isn't added, 3 is repeated and isn't added, 2 is repeated and isn't added, 1 is repeated and isn't added.
+	Sub 5: Because order isn't necassary adding all elements to a hashset and then adding the back to a new list is the simplest solution.
+	Sub 6: Filling a list with random duplicates were tested all of which return without duplicates
+	Sub 7: No debbuging was necassary.
+L: By taking advantage of the fact that order isn't important the solution becomes trival. This problem shows that someitmes information that is implied in the soluiton can 
+a long way to making it that much easier to solve.
