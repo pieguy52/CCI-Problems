@@ -5,7 +5,7 @@ import java.util.EmptyStackException;
 import java.util.Stack;
 
 public class SetOfStacks<T> {
-	private ArrayList<Stack<T>> stacks = new ArrayList<Stack<T>>();
+	private Stack<Stack<T>> stacks = new Stack<Stack<T>>();
 	public int capacity;
 	
 	public SetOfStacks(){
@@ -30,7 +30,7 @@ public class SetOfStacks<T> {
 			System.out.println("Proof a new stack was made");
 			Stack<T> stack = new Stack<T>();
 			stack.push(val);
-			stacks.add(stack);
+			stacks.push(stack);
 		}
 	}
 	
@@ -40,7 +40,7 @@ public class SetOfStacks<T> {
 			throw new EmptyStackException();
 		T val = last.pop();
 		if(last.size() == 0)
-			stacks.remove(stacks.size() -1);
+			stacks.pop();
 		return val;
 	}
 	

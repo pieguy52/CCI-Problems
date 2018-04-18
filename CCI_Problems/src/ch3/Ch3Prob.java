@@ -1,8 +1,7 @@
 package ch3;
 
+import java.util.Random;
 import java.util.Stack;
-
-import ch3.Animal;
 
 public class Ch3Prob {
 
@@ -39,12 +38,25 @@ public class Ch3Prob {
 			System.out.println(test.pop());
 	}
 	
-	public static void redundantHeapTests() {
-		RedundantHeap redundancey = new RedundantHeap();
+	public static void minStackTests() {
+		Random rand = new Random();
+		StackWithMin test1 = new StackWithMin();
 		for(int i = 10; i > 0; i--)
-			redundancey.push(i);
-		while(!redundancey.isEmpty())
-			System.out.println(redundancey.pop().value);
+			test1.push(rand.nextInt(10));
+		
+		while(!test1.isEmpty()){
+			NodeWithMin n = test1.pop();
+			System.out.println(n.min + " " + n.value);
+		}
+		System.out.println();
+		StackWithMin test2 = new StackWithMin();
+		for(int i = 0; i < 10; i++)
+			test2.push(rand.nextInt(10));
+		
+		while(!test2.isEmpty()){
+			NodeWithMin n = test2.pop();
+			System.out.println(n.min + " " + n.value);
+		}
 	}
 	
 	public static void setOfStacksTests(){
@@ -76,8 +88,8 @@ public class Ch3Prob {
 	public static void main(String[] args) {
 		//queueViaStackTests();
 		//sortStackTests();
-		//redundantHeapTests();
+		//minStackTests();
 		//setOfStacksTests();
-		animalQTests();
+		//animalQTests();
 	}
 }

@@ -23,23 +23,29 @@ public class DoubleStackedQueue<T> {
 		return;
 	}
 	
-	public T dequeue(){
-		T head = null;
+	private void shiftQsRight(){
 		while(!lStack.isEmpty())
 			rStack.push(lStack.pop());
-		head = rStack.pop();
+	}
+	
+	private void shiftQsLeft(){
 		while(!rStack.isEmpty())
 			lStack.push(rStack.pop());
+	}
+	
+	public T dequeue(){
+		T head = null;
+		shiftQsRight();
+		head = rStack.pop();
+		shiftQsLeft();
 		return head;
 	}
 	
 	public T peek(){
 		T head = null;
-		while(!lStack.isEmpty())
-			rStack.push(lStack.pop());
+		shiftQsRight();
 		head = rStack.peek();
-		while(!rStack.isEmpty())
-			lStack.push(rStack.pop());
+		shiftQsLeft();
 		return head;
 	}
 }
