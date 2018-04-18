@@ -1,0 +1,12 @@
+I: Create a set of stacks, where in each stack has a fixed and inflexible capacity
+D: A set of stacks where each stack has a fixed and inflexible capacity 
+	Sub 1: When a stack is full it must be pushed aside for another stack to be filled. A new stack is made and filled. The cycle repeats
+	Sub 2: Every time a stack was filled it was moved for the other. When that one was emptied, the next one was brought back
+	Sub 3: There are no patterns, but the important condition for size was consistent throughout
+	Sub 4: When given a stack with limit 3 as 1 > 2 > 3, the stacks size is checked. It is indeed full, as such a new stack is made. The result is stacks[1] : 1 > 2 > 3, stacks[0] 4 > 
+	Sub 5: A stack was used to keep track of the stacks, as each time a stack was full it was pushed down, to be called later. A sort of stack-ception in a conceptual sense to maintain 
+	order in what was first before the rest. 
+	Sub 6: Due to an error in the constructor, all capacities were set to zero, causing an error where nothing was added, and an exception was always thrown.
+	Sub 7: Changing the capacity to be the given capacity fixed it.
+L: A solution only has to be as difficult as it is difficult in concept. If a simple solution is viable, such as a stack of stacks, it is easier than trying to make data structures that 
+behave like stacks, but also link up accordingly to maintain proper order. 
