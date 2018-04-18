@@ -2,6 +2,8 @@ package ch3;
 
 import java.util.Stack;
 
+import ch3.Animal;
+
 public class Ch3Prob {
 
 	public static void queueViaStackTests(){
@@ -45,7 +47,7 @@ public class Ch3Prob {
 			System.out.println(redundancey.pop().value);
 	}
 	
-	public static void SetOfStacksTests(){
+	public static void setOfStacksTests(){
 		SetOfStacks<Integer> sS = new SetOfStacks<Integer>(5);
 		for(int i = 0; i < 10; i++)
 			sS.push(i);
@@ -54,10 +56,28 @@ public class Ch3Prob {
 			System.out.println(sS.pop());
 	}
 	
+	public static void animalQTests(){
+		AnimalQueue aQ = new AnimalQueue();
+		
+		for(int i = 0; i < 10; i++){
+			if(i%2 == 0){
+				Dog d = new Dog(Integer.toString(i));
+				aQ.enqueue(d);
+			}else{
+				Cat c = new Cat(Integer.toString(i));
+				aQ.enqueue(c);
+			}
+		}
+		
+		for(int i = 0; i < 10; i++)
+			System.out.println(aQ.dequeueAny().name);
+	}
+	
 	public static void main(String[] args) {
 		//queueViaStackTests();
 		//sortStackTests();
 		//redundantHeapTests();
-		SetOfStacksTests();
+		//setOfStacksTests();
+		animalQTests();
 	}
 }
