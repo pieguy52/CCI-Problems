@@ -1,0 +1,16 @@
+I: Implement a stack which has a min function and still has constant operation time for push pop and min
+D: A heap/priority queue
+	Sub 1: There is no 'by hand' example. Instead a brainstorm for how to implement a heap was had
+	Sub 2: I looked at the hints given by the book to get an idea for how to approach the problem, as well as old notes on how to implement a heap
+	Sub 3: There are no patterns, more so there is an advantage in using stacks and more importantly int that once a smaller value is pushed 
+  in it becomes the smallest, meaning that each position only needs to know the smallest up until the smallest is popped out, then the next
+  nodes 'smallest' is true and can be called. So instead of actually being a heap, the stack simply keeps track of the smallest 
+  element, which isn't as useful, but does make having to maintain a heap unnecessary.
+	Sub 4: Once the algorithm was in place all that was needed was to implement it. A quick check on random numbers in a stack worked fine. 
+  The test used was 2 > 5 > 10 > 9 > 1. All the nodes would have one as the min as it is all the way at the bottom. In 1 > 9 > 10 > 5 > 2. 
+  When one is removed the next smallest becomes 2 for the same reason. 
+	Sub 5: Percolating the value becomes manageable once an object is used that does it internally. By not actually ordering the values 
+  instead the smallest is all that is needed to be kept. 
+	Sub 6: A random object was used and values were pushed into the queue and then removed with the value and min printed to show the update worked.
+	Sub 7: No debugging was necessary.
+L: When implementing a solution sometimes the simplest is the easiest way to implement it, and its important to remember that before getting bogged down in more convoluted solutions. 
