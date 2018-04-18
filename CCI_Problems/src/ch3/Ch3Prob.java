@@ -78,28 +78,51 @@ public class Ch3Prob {
 			System.out.println(sS.pop());
 	}
 	
-	public static void animalQTests(){
+	public static void animalQTests() throws Exception{
 		AnimalQueue aQ = new AnimalQueue();
 		
 		for(int i = 0; i < 10; i++){
 			if(i%2 == 0){
-				Dog d = new Dog(Integer.toString(i));
+				Dog d = new Dog("Dog "+Integer.toString(i));
 				aQ.enqueue(d);
 			}else{
-				Cat c = new Cat(Integer.toString(i));
+				Cat c = new Cat("Cat "+Integer.toString(i));
 				aQ.enqueue(c);
 			}
 		}
 		
 		for(int i = 0; i < 10; i++)
 			System.out.println(aQ.dequeueAny().name);
+		System.out.println();
+		AnimalQueue aQ1 = new AnimalQueue();
+		
+		for(int i = 0; i < 10; i++){
+			if(i%2 == 0){
+				Dog d = new Dog("Dog "+Integer.toString(i));
+				aQ1.enqueue(d);
+			}else{
+				Cat c = new Cat("Cat "+Integer.toString(i));
+				aQ1.enqueue(c);
+			}
+		}
+		
+		int size = aQ1.getDogSize();
+		while(size != 0){
+			System.out.println(aQ1.dequeueDog().name);
+			size = aQ1.getDogSize();
+		}
+		size = aQ1.getCatSize();
+		while(size != 0){
+			System.out.println(aQ1.dequeueCat().name);
+			size = aQ1.getCatSize();
+		}
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		//queueViaStackTests();
 		//sortStackTests();
 		//minStackTests();
 		//setOfStacksTests();
-		//animalQTests();
+		animalQTests();
 	}
 }

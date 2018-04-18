@@ -1,5 +1,6 @@
 package ch3;
 
+import java.util.EmptyStackException;
 import java.util.LinkedList;
 
 public class AnimalQueue {
@@ -29,4 +30,23 @@ public class AnimalQueue {
 			return catQ.removeFirst();
 	}
 	
+	public Animal dequeueDog() throws Exception{
+		if(dogQ.size() == 0)
+			throw new Exception();
+		return dogQ.removeFirst();
+	}
+	
+	public int getDogSize(){
+		return dogQ.size();
+	}
+	
+	public Animal dequeueCat() throws Exception{
+		if(catQ.size() == 0)
+			throw new Exception();
+		return catQ.removeFirst();
+	}
+	
+	public int getCatSize(){
+		return catQ.size();
+	}
 }
