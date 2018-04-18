@@ -1,0 +1,11 @@
+I: Make a queue of two objects where order on the two objects is maintained, and the objects can be removed by name or indiscriminately
+D: A two objects queue
+	Sub 1: Maintain separate queues and for each object have a order attribute that is updated in the queue implementation and not in the object
+	Sub 2: By having an external handler of the order, the order can be maintained without conflicts 
+	Sub 3: If one queue is empty, dequeue from the other
+	Sub 4: dogs: Dog(1) > Dog(2) > Dog(5) Cat: Cat(3) > Cat(4). Dequeue any dogs.peek.order < cats.peek.order return dog ... dogs.isEmpty() returns true return Cat(4)
+	Sub 5: Transition to code requires checking instance of the object to put into correct list, rest is the same as algorithm
+	Sub 6: Running the tests showed that dequeue cat and dequeue dog where not implemented
+	Sub 7: In haste the implementation of dequeue cat/dog threw errors as the sizes being checked where inconstant
+L: When writing code make sure not to miss important aspects of whats being asked, and more importunately when implementing them don't rush and make silly mistakes. Otherwise debugging can 
+get worse than it needs to be.
