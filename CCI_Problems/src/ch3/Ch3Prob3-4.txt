@@ -1,0 +1,11 @@
+I: Implement a queue using two stacks
+D: A queue made of two stacks
+	Sub 1: In order to maintain order two stacks would be needed. Since the bottom most entry would be the first, all the elements would have to be shifted over to access the first, then 
+	shifted back to maintain the proper order.
+	Sub 2: All the elements from one stack were moved over to allow for the bottom element to be returned, and then the stacks were reset. 
+	Sub 3: The first element is always at the bottom of the stack, so its imperative to shift the stacks back once the element is retrieved. 
+	Sub 4: l: 4 > 3 > 2 > 1 r: null, l: 4 > 3 > 2 r: 1, l: 4 > 3 r: 2 > 1, l: 4 r: 3 > 2 > 1. return 4 l: 3 r: 2 > 1, l: 3 > 2 r: 1, l: 3 > 2 > 1 r: null
+	Sub 5: Translation to code is the same as the algorithm on paper
+	Sub 6: The returns would oscillate between first, last, first, last, ... etc.
+	Sub 7: In the initial build the stacks were not shifted back resulting in the oscillation.
+L: During implementation bugs can arise from oversight, which is why tracing is important to avoid silly mistakes.
