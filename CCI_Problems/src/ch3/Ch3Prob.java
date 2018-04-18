@@ -28,6 +28,7 @@ public class Ch3Prob {
 	}
 	
 	public static void sortStackTests(){
+		Random rand = new Random();
 		Stack<Integer> test = new Stack<Integer>();
 		for(int i = 0; i < 10; i++){
 			test.push(i);
@@ -36,6 +37,15 @@ public class Ch3Prob {
 		test = sortStack(test);
 		while(!test.isEmpty())
 			System.out.println(test.pop());
+		System.out.println();
+		Stack<Integer> test2 = new Stack<Integer>();
+		for(int i = 0; i < 10; i++){
+			test2.push(rand.nextInt(10));
+		}
+		
+		test2 = sortStack(test2);
+		while(!test2.isEmpty())
+			System.out.println(test2.pop());
 	}
 	
 	public static void minStackTests() {
