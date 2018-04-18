@@ -37,8 +37,27 @@ public class Ch3Prob {
 			System.out.println(test.pop());
 	}
 	
+	public static void redundantHeapTests() {
+		RedundantHeap redundancey = new RedundantHeap();
+		for(int i = 10; i > 0; i--)
+			redundancey.push(i);
+		while(!redundancey.isEmpty())
+			System.out.println(redundancey.pop().value);
+	}
+	
+	public static void SetOfStacksTests(){
+		SetOfStacks<Integer> sS = new SetOfStacks<Integer>(5);
+		for(int i = 0; i < 10; i++)
+			sS.push(i);
+		
+		for(int i = 0; i< 10; i++)
+			System.out.println(sS.pop());
+	}
+	
 	public static void main(String[] args) {
 		//queueViaStackTests();
-		sortStackTests();
+		//sortStackTests();
+		//redundantHeapTests();
+		SetOfStacksTests();
 	}
 }
